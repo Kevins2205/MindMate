@@ -1,6 +1,8 @@
 package com.example.mindmate;
 
 import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +11,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_home) {
+                selectedFragment = new HomeFragment();
+            } else if (itemId == R.id.nav_diario) {
+                selectedFragment = new DiarioFragment();
+            } else if (itemId == R.id.nav_eventi) {
+                selectedFragment = new EventiFragment();
+            } else if (itemId == R.id.nav_profilo) {
+                selectedFragment = new ProfiloFragment();
+            }
+
+            if (selectedFragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, selectedFragment)
+                        .commit();
+            }
+
+            return true;
+        });
+
+        // Carica il fragment iniziale (Home)
+        if (savedInstanceState == null) {
+            bottomNav.setSelectedItemId(R.id.nav_home);
+        }
         // Accesso corretto alla ImageView logoMindMate
         ImageView logoMindMate = findViewById(R.id.logoMindMate);
         // Puoi ora lavorare con logoMindMate, ad esempio cambiare immagine, aggiungere listener, ecc.

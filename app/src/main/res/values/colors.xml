@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colori principali dell'app -->
+    <color name="primary_teal">#4DB6AC</color>
+    <color name="dark_teal">#26A69A</color>
+    <color name="light_teal">#80CBC4</color>
+    <color name="very_light_teal">#B2DFDB</color>
+
+    <!-- Colori di sfondo -->
+    <color name="background_start">#80CBC4</color>
+    <color name="background_end">#4DB6AC</color>
+    <color name="bottom_nav_background">#F5F5F5</color>
+
+    <!-- Colori per testo -->
+    <color name="white">#FFFFFF</color>
+    <color name="dark_gray">#2E2E2E</color>
+    <color name="medium_gray">#757575</color>
+    <color name="light_gray">#BDBDBD</color>
+    <color name="very_light_gray">#F5F5F5</color>
+
+    <!-- Colori per task -->
+    <color name="task_blue">#5DADE2</color>
+    <color name="task_green">#58D68D</color>
+    <color name="task_orange">#F7DC6F</color>
+
+    <!-- Colori per obiettivi -->
+    <color name="objective_pink">#F48FB1</color>
+    <color name="objective_blue">#64B5F6</color>
+    <color name="objective_red">#E57373</color>
+
+    <!-- Colori per bottom navigation -->
+    <color name="bottom_nav_item_color">#757575</color>
+    <color name="bottom_nav_selected">#26A69A</color>
+
+    <!-- Colori per eventi -->
+    <color name="event_red">#E57373</color>
+
+    <!-- Colori per attività fisica -->
+    <color name="activity_background">#E8F5E8</color>
+
+    <!-- Colori per mood/emozioni -->
+    <color name="mood_sad">#FFC107</color>
+    <color name="mood_neutral">#FFC107</color>
+    <color name="mood_happy">#FFC107</color>
+</resources>

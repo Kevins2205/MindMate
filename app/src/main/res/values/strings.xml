@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MindMate</string>
+    <string name="leaf_icon">Leaf Icon</string>
+
+    <!-- Homepage strings -->
+    <string name="prev">Precedente</string>
+    <string name="next">Successiva</string>
+    <string name="date_sample">&lt; 24 settembre 2025 &gt;</string>
+    <string name="phrase_of_the_day">Frase del giorno</string>
+    <string name="phrase_text">Concentrati su dove vuoi andare, non dove sei al momento!</string>
+    <string name="tasks_title">TASK DEL GIORNO</string>
+    <string name="task_write_note">Scrivi una nota</string>
+    <string name="task_join_event">Partecipa a un evento</string>
+    <string name="task_physical">Attività fisica</string>
+    <string name="goals_title">Obiettivi</string>
+    <string name="goal_1">Autostima</string>
+    <string name="goal_2">Emigrazione</string>
+    <string name="goal_3">Serenità</string>
+    <string name="physical_title">Attività fisica</string>
+    <string name="physical_subtitle">Che ne dici di una corsetta?</string>
+    <string name="desc_diary">Diario</string>
+    <string name="desc_event">Evento</string>
+    <string name="desc_running">Icona corsa</string>
+
+    <!-- Nuove stringhe homepage semplificata -->
+    <string name="greeting_user">Ciao, Kevin!</string>
+    <string name="today_you_feel">Oggi ti senti:</string>
+    <string name="tasks_today">Task di oggi</string>
+    <string name="goals_title_simple">Obiettivi</string>
+    <string name="notifications_events">Notifiche ed eventi</string>
+</resources>

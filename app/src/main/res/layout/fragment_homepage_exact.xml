@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background identico allo screenshot -->
+    <ImageView
+        android:id="@+id/homepage_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/homepage_1_task" />
+
+    <!-- Qui puoi aggiungere elementi interattivi (pulsanti, ecc.) se servono sopra l'immagine -->
+    <!-- Esempio: -->
+    <!--
+    <Button
+        android:id="@+id/btn_task_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fatto"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp" />
+    -->
+
+</FrameLayout>

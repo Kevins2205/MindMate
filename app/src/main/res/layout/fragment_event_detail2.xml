@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/event_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_event_marker"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/event_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titolo Evento"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#222"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/event_detail_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="24/09/2025, 18:00"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/event_detail_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Luogo dell'evento"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/event_detail_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descrizione dettagliata dell'evento."
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btn_event_participate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Partecipa"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btn_event_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salva evento"
+            android:backgroundTint="#607D8B"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
+

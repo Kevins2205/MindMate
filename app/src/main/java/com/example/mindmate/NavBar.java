@@ -1,3 +1,5 @@
 package com.example.mindmate;
-public class MainActivity {
+
+public class NavBar {
+
 }

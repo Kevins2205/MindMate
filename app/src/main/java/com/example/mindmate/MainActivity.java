@@ -6,11 +6,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImageView logoMindMate = findViewById(R.id.logoMindMate);
+        /*BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
@@ -39,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             bottomNav.setSelectedItemId(R.id.nav_home);
         }
-        // Accesso corretto alla ImageView logoMindMate
-        ImageView logoMindMate = findViewById(R.id.logoMindMate);
-        // Puoi ora lavorare con logoMindMate, ad esempio cambiare immagine, aggiungere listener, ecc.
-    }
+       
+   */ }
 }

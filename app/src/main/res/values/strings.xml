@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MindMate</string>
+    <string name="date">04 maggio 2025</string>
+    <string name="phrase_title">Frase del giorno</string>
+    <string name="phrase_text">Concentrati su dove vuoi andare, non dove sei al momento!</string>
+    <string name="task_title">TASK DEL GIORNO</string>
+    <string name="task1_title">Scrivi nel Diario</string>
+    <string name="task1_desc">Come ti senti oggi?</string>
+    <string name="task2_title">Respira con me</string>
+    <string name="task2_desc">Gestisci l\'ansia col respiro</string>
+    <string name="task3_title">Lasciati ispirare</string>
+    <string name="task3_desc">Una storia o un video può motivarti!</string>
+    <string name="obiettivi">Obiettivi</string>
+    <string name="attivita_fisica">Attività fisica</string>
+    <string name="attivita_fisica_desc">Che ne dici di una corsetta?</string>
 </resources>

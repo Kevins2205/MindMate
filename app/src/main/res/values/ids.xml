@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="fragment_container" type="id" />
+    <item name="diarioTitle" type="id" />
+    <item name="monthText" type="id" />
+    <item name="calendarGrid" type="id" />
 </resources>

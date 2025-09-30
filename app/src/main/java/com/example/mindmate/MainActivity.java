@@ -21,18 +21,18 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
 
             int itemId = item.getItemId();
-            /*
+
             if (itemId == R.id.nav_home) {
                 selectedFragment = new HomeFragment();
 
             } else if (itemId == R.id.nav_diario) {
                 selectedFragment = new DiarioFragment();
-            } else if (itemId == R.id.nav_eventi) {
+            } /*else if (itemId == R.id.nav_eventi) {
                 selectedFragment = new EventiFragment();
             } else if (itemId == R.id.nav_profilo) {
                 selectedFragment = new ProfiloFragment();
-            }
-            */
+            } */
+
             if (selectedFragment != null) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, selectedFragment)

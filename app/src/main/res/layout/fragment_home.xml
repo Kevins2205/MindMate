@@ -172,7 +172,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tasksWrapper"
         android:layout_width="382dp"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
@@ -180,155 +182,168 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/taskSection">
-        <!-- Task 1 -->
+        <!-- Task 1 Wrapper -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/task1"
+            android:id="@+id/task1_wrapper"
             android:layout_width="127dp"
-            android:layout_height="90dp"
-            android:elevation="2dp"
-            android:padding="8dp"
-            android:background="@drawable/bg_task"
-            app:layout_constraintEnd_toStartOf="@id/task2"
-            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/task1_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@string/task1_title"
-                android:textColor="#222"
-                android:textSize="13sp"
-                android:textStyle="bold"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/task1_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/task1_desc"
-                android:textColor="#444"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@id/task1_title"
-                app:layout_constraintStart_toStartOf="@id/task1_title"
-                app:layout_constraintTop_toBottomOf="@id/task1_title" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <!-- Task 2 -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/task2"
-            android:layout_width="113dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/bg_task"
-            android:elevation="2dp"
-            android:padding="8dp"
-            app:layout_constraintEnd_toStartOf="@id/task3"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/task1"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/task2_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:text="@string/task2_title"
-                android:textColor="#222"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/task2_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/task2_desc"
-                android:textColor="#444"
-                android:textSize="12sp"
-                android:gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/task2_wrapper">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/task1"
+                android:layout_width="127dp"
+                android:layout_height="90dp"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:background="@drawable/bg_task"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/task2_title" />
+                android:layout_marginTop="24dp">
+                <TextView
+                    android:id="@+id/task1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/task1_title"
+                    android:textColor="#222"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/task1_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/task1_desc"
+                    android:textColor="#444"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/task1_title"
+                    app:layout_constraintStart_toStartOf="@id/task1_title"
+                    app:layout_constraintTop_toBottomOf="@id/task1_title" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/task1_img"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/pill"
+                android:contentDescription="@string/task1_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="8dp"
+                android:layout_marginStart="-6dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <!-- Task 3 -->
+        <!-- Task 2 Wrapper -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/task3"
+            android:id="@+id/task2_wrapper"
             android:layout_width="113dp"
-            android:layout_height="91dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/bg_task"
-            android:elevation="2dp"
-            android:padding="8dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/task1_wrapper"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/task3_wrapper"
+            android:layout_marginStart="16dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/task2"
+                android:layout_width="113dp"
+                android:layout_height="90dp"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:background="@drawable/bg_task"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp">
+                <TextView
+                    android:id="@+id/task2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:text="@string/task2_title"
+                    android:textColor="#222"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/task2_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/task2_desc"
+                    android:textColor="#444"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/task2_title" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/task2_img"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/pill"
+                android:contentDescription="@string/task2_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="8dp"
+                android:layout_marginStart="-6dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Task 3 Wrapper -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/task3_wrapper"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/task2_wrapper"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/task2"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/task3_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:text="@string/task3_title"
-                android:textColor="#222"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/task3_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/task3_desc"
-                android:textColor="#444"
-                android:textSize="12sp"
-                android:gravity="center"
-                app:layout_constraintEnd_toEndOf="@id/task3_title"
-                app:layout_constraintStart_toStartOf="@id/task3_title"
-                app:layout_constraintTop_toBottomOf="@id/task3_title" />
+            android:layout_marginStart="16dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/task3"
+                android:layout_width="113dp"
+                android:layout_height="91dp"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:background="@drawable/bg_task"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp">
+                <TextView
+                    android:id="@+id/task3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:text="@string/task3_title"
+                    android:textColor="#222"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/task3_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/task3_desc"
+                    android:textColor="#444"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="@id/task3_title"
+                    app:layout_constraintStart_toStartOf="@id/task3_title"
+                    app:layout_constraintTop_toBottomOf="@id/task3_title" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/task3_img"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/pill"
+                android:contentDescription="@string/task3_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="8dp"
+                android:layout_marginStart="-6dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/task1_img"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/task1_title"
-        android:src="@drawable/pill"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="234dp" />
-
-    <ImageView
-        android:id="@+id/task2_img"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/task2_title"
-        android:src="@drawable/pill"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="234dp" />
-
-    <ImageView
-        android:id="@+id/task3_img"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/task3_title"
-        android:src="@drawable/pill"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="234dp"
-        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/obiettiviTitle"

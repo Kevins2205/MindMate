@@ -7,64 +7,159 @@
     android:background="@android:color/transparent"
     tools:context=".DiarioFragment">
 
-    <!-- Header con titolo e frecce -->
+    <!-- Header con titolo centrato e logo a destra -->
+
     <TextView
         android:id="@+id/diarioTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="DIARIO"
-        android:textStyle="bold"
-        android:textSize="18sp"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoMindMate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Logo MindMate"
+        android:src="@drawable/logomindmate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/monthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
         android:text="Maggio 2025"
-        android:textStyle="bold"
-        android:textSize="16sp"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/diarioTitle"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"/>
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/diarioTitle" />
 
     <TextView
         android:id="@+id/arrowLeft"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:text="◀"
         android:gravity="center"
+        android:text="◀"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/monthText"
-        app:layout_constraintTop_toTopOf="@id/monthText"/>
+        app:layout_constraintTop_toTopOf="@id/monthText" />
 
     <TextView
         android:id="@+id/arrowRight"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:text="▶"
         android:gravity="center"
+        android:text="▶"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/monthText"
-        app:layout_constraintTop_toTopOf="@id/monthText"/>
+        app:layout_constraintTop_toTopOf="@id/monthText" />
 
     <!-- Griglia calendario -->
+    <LinearLayout
+        android:id="@+id/weekDaysRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monthText">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="LUN"
+            android:textColor="#444"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="MAR"
+            android:textColor="#444"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="MER"
+            android:textColor="#444"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="GIO"
+            android:textColor="#444"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="VEN"
+            android:textColor="#444"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SAB"
+            android:textColor="#444"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="DOM"
+            android:textColor="#444"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <GridLayout
         android:id="@+id/calendarGrid"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="7"
-        android:rowCount="6"
+        android:layout_marginTop="4dp"
         android:alignmentMode="alignMargins"
+        android:columnCount="7"
+        android:gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:rowCount="6"
         android:useDefaultMargins="true"
-        app:layout_constraintTop_toBottomOf="@id/monthText"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weekDaysRow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

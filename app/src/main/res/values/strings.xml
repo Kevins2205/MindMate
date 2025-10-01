@@ -28,4 +28,12 @@
     <string name="nuova_nota_title">Nuova Nota</string>
     <string name="come_ti_senti">Come ti senti oggi?</string>
     <string name="logo_mindmate">Logo MindMate</string>
+    <string name="respirazione_title">RESPIRAZIONE</string>
+    <string name="respirazione_start">Premi Start per iniziare!</string>
+    <string name="respirazione_inspira">Inspira 5 secondi...</string>
+    <string name="respirazione_trattieni">Trattieni 5 secondi...</string>
+    <string name="respirazione_espira">Espira 5 secondi...</string>
+    <string name="respirazione_completato">Esercizio completato!</string>
+    <string name="start">Start</string>
+    <string name="indietro">Indietro</string>
     </resources>

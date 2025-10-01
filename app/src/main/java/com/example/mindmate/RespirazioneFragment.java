@@ -68,6 +68,11 @@ public class RespirazioneFragment extends Fragment {
     }
 
     private void avviaRespirazione() {
+        if(HomeFragment.respirazioneCompletataOggi) {
+            // Se già completata oggi, mostra messaggio e non far ripartire
+            android.widget.Toast.makeText(getContext(), "Hai già completato l'esercizio di respirazione oggi! Torna alla Home", android.widget.Toast.LENGTH_LONG).show();
+            return;
+        }
         fase = 0;
         tempoTrascorso = 0L;
         buttonStart.setEnabled(false);
@@ -130,6 +135,7 @@ public class RespirazioneFragment extends Fragment {
         String dataOggi = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
         android.content.SharedPreferences prefs = requireContext().getSharedPreferences("mindmate_prefs", android.content.Context.MODE_PRIVATE);
         prefs.edit().putBoolean("respirazione_completata_" + dataOggi, true).apply();
+        HomeFragment.respirazioneCompletataOggi = true;
     }
 
     private static class FaseRespiro {

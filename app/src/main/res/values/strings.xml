@@ -12,8 +12,11 @@
     <string name="task3_title">Lasciati ispirare</string>
     <string name="task3_desc">Una storia o un video può motivarti!</string>
     <string name="obiettivi">Obiettivi</string>
-    <string name="attivita_fisica">Attività fisica</string>
-    <string name="attivita_fisica_desc">Che ne dici di una corsetta?</string>
+
+    <string name="attivita_title">Attività fisica</string>
+    <string name="attivita_subtitle">Scegli un\'attività per oggi</string>
+    <string name="attivita_description">Puoi selezionare tra diverse opzioni, da yoga a corsa o passeggiate.</string>
+
     <string name="emoji1">😔</string>
     <string name="emoji2">😍</string>
     <string name="emoji3">😊</string>
@@ -36,4 +39,14 @@
     <string name="respirazione_completato">Esercizio completato!</string>
     <string name="start">Start</string>
     <string name="indietro">Indietro</string>
+
+    <!-- Card attività -->
+    <string name="sessione_yoga">Yoga</string>
+    <string name="ballare_in_casa">Ballare</string>
+    <string name="cardio">Corsa</string>
+    <string name="hiit">HIIT</string>
+    <string name="pilates">Pilates</string>
+    <string name="passeggiata_cane">Passeggiata col cane</string>
+    <string name="giro_bici">Giro in bici</string>
+    <string name="corsa_allenamento">Corsa allenamento</string>
     </resources>

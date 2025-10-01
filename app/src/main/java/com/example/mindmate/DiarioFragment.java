@@ -76,13 +76,30 @@ public class DiarioFragment extends Fragment {
             aggiornaCalendario();
         });
 
-        btnNuovaNota.setOnClickListener(v -> {
-            requireActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, new NuovaNotaFragment())
-                .addToBackStack(null)
-                .commit();
-        });
+        // Controllo se la nota di oggi è già presente
+        String dataOggi = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+        boolean notaPresente = false;
+        if (noteTemporanee != null) {
+            for (NotaTemp n : noteTemporanee) {
+                if (n.data.equals(dataOggi)) {
+                    notaPresente = true;
+                    break;
+                }
+            }
+        }
+        if (notaPresente) {
+            btnNuovaNota.setOnClickListener(v -> {
+                android.widget.Toast.makeText(getContext(), "Hai già inserito una nota oggi. Puoi visualizzarla nel diario.", android.widget.Toast.LENGTH_LONG).show();
+            });
+        } else {
+            btnNuovaNota.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, new NuovaNotaFragment())
+                    .addToBackStack(null)
+                    .commit();
+            });
+        }
 
         btnIndietro.setOnClickListener(v -> {
             // Torna direttamente alla Home selezionando la voce Home della bottom navigation

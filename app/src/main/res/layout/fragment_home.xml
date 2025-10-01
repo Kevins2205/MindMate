@@ -16,54 +16,47 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Freccia sinistra -->
-
-    <!-- Data odierna -->
-
-    <!-- Freccia destra -->
-
-    <!-- Linea orizzontale bianco panna -->
-
-    <TextView
-        android:id="@+id/arrowLeft"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="\u25C0"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@id/logoMindMate"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/headerLine" />
 
     <TextView
         android:id="@+id/textDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="28dp"
         android:text="@string/date"
         android:textColor="#222"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/arrowLeft"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/headerLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <TextView
+        android:id="@+id/arrowLeft"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="\u25C0"
+        android:textSize="24sp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@id/textDate"
+        app:layout_constraintTop_toTopOf="@id/textDate"
+        app:layout_constraintBottom_toBottomOf="@id/textDate" />
 
     <TextView
         android:id="@+id/arrowRight"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="\u25B6"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toEndOf="@id/textDate"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/textDate"
+        app:layout_constraintBottom_toBottomOf="@id/textDate" />
 
     <View
         android:id="@+id/headerLine"

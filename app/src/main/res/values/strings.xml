@@ -3,6 +3,7 @@
     <string name="date">04 maggio 2025</string>
     <string name="phrase_title">Frase del giorno</string>
     <string name="phrase_text">Concentrati su dove vuoi andare, non dove sei al momento!</string>
+    <string name="phrase_text_past">Ogni giorno è una nuova opportunità per migliorare te stesso!</string>
     <string name="task_title">TASK DEL GIORNO</string>
     <string name="task1_title">Scrivi nel Diario</string>
     <string name="task1_desc">Come ti senti oggi?</string>

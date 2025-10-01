@@ -75,6 +75,29 @@ public class HomeFragment extends Fragment {
                 .addToBackStack(null)
                 .commit();
         });
+        ImageView pillRespira = root.findViewById(R.id.task2_img);
+        String dataOggiResp = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        android.content.SharedPreferences prefs = requireContext().getSharedPreferences("mindmate_prefs", android.content.Context.MODE_PRIVATE);
+        boolean respirazioneCompletata = prefs.getBoolean("respirazione_completata_" + dataOggiResp, false);
+        View task2 = root.findViewById(R.id.task2);
+        if (respirazioneCompletata) {
+            pillRespira.setImageResource(R.drawable.pillgreen);
+            if (task2 != null) {
+                task2.setOnClickListener(v -> {
+                    android.widget.Toast.makeText(getContext(), "Hai già completato la respirazione oggi!", android.widget.Toast.LENGTH_LONG).show();
+                });
+            }
+        } else {
+            pillRespira.setImageResource(R.drawable.pill);
+            if (task2 != null) {
+                task2.setOnClickListener(v -> {
+                    FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.fragment_container, new RespirazioneFragment());
+                    ft.addToBackStack(null);
+                    ft.commit();
+                });
+            }
+        }
         return root;
     }
 }

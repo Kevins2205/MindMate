@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 public class DiarioFragment extends Fragment {
 
@@ -22,30 +24,46 @@ public class DiarioFragment extends Fragment {
     // 🔹 Giorni con diario preimpostato (demo)
     private HashMap<String, VoceDiario> diarioFinto;
 
+    // Lista statica per note temporanee
+    public static class NotaTemp {
+        public String testo;
+        public String data;
+        public int emojiIndex;
+        public NotaTemp(String testo, String data, int emojiIndex) {
+            this.testo = testo;
+            this.data = data;
+            this.emojiIndex = emojiIndex;
+        }
+    }
+    public static java.util.List<NotaTemp> noteTemporanee = new java.util.ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_diario, container, false);
-
         textMeseAnno = view.findViewById(R.id.monthText);
         calendarioGrid = view.findViewById(R.id.calendarGrid);
         TextView btnPrev = view.findViewById(R.id.arrowLeft);
         TextView btnNext = view.findViewById(R.id.arrowRight);
-
-
+        Button btnNuovaNota = view.findViewById(R.id.buttonNuovaNota);
+        Button btnIndietro = view.findViewById(R.id.buttonIndietro);
         calendario = Calendar.getInstance();
-
-        // 🔹 Dati finti
         diarioFinto = new HashMap<>();
-        diarioFinto.put("2025-05-03", new VoceDiario("😰", "Oggi mi sento abbastanza ansiosa perché…"));
-        diarioFinto.put("2025-04-13", new VoceDiario("😊", "Giornata positiva, sono riuscita a rilassarmi."));
-        diarioFinto.put("2025-04-20", new VoceDiario("😡", "Un po' di stress, ma sto migliorando."));
-        diarioFinto.put("2025-09-05", new VoceDiario("😃", "Settembre è iniziato bene, mi sento motivata!"));
-        diarioFinto.put("2025-09-12", new VoceDiario("😴", "Oggi sono un po' stanca, ma soddisfatta del lavoro fatto."));
-        diarioFinto.put("2025-09-25", new VoceDiario("🤔", "Giornata di riflessione, ho preso decisioni importanti."));
-        diarioFinto.put("2025-10-03", new VoceDiario("😌", "Ottobre porta aria fresca, mi sento serena."));
-        diarioFinto.put("2025-10-14", new VoceDiario("😅", "Giornata impegnativa, ma sono riuscita a gestire tutto."));
-        diarioFinto.put("2025-10-28", new VoceDiario("😍", "Ho passato una bellissima giornata con gli amici."));
+        // Carica note temporanee
+        for (NotaTemp n : noteTemporanee) {
+            String emoji = getEmojiByIndex(n.emojiIndex);
+            diarioFinto.put(n.data, new VoceDiario(emoji, n.testo));
+        }
+        // Dati finti opzionali
+        diarioFinto.put("2025-05-03", new VoceDiario(getString(R.string.emoji1), "Oggi mi sento un po' ansiosa, ma cerco di restare positiva."));
+        diarioFinto.put("2025-04-13", new VoceDiario(getString(R.string.emoji2), "Giornata positiva, sono riuscita a rilassarmi."));
+        diarioFinto.put("2025-04-20", new VoceDiario(getString(R.string.emoji3), "Un po' di stress, ma sto migliorando."));
+        diarioFinto.put("2025-09-05", new VoceDiario(getString(R.string.emoji4), "Settembre è iniziato bene, mi sento motivata!"));
+        diarioFinto.put("2025-09-12", new VoceDiario(getString(R.string.emoji5), "Oggi sono un po' stanca, ma soddisfatta del lavoro fatto."));
+        diarioFinto.put("2025-09-25", new VoceDiario(getString(R.string.emoji6), "Giornata di riflessione, ho preso decisioni importanti."));
+        diarioFinto.put("2025-10-03", new VoceDiario(getString(R.string.emoji7), "Ottobre porta aria fresca, mi sento serena."));
+        diarioFinto.put("2025-10-14", new VoceDiario(getString(R.string.emoji8), "Giornata impegnativa, ma sono riuscita a gestire tutto."));
+        diarioFinto.put("2025-10-28", new VoceDiario(getString(R.string.emoji9), "Ho passato una bellissima giornata con gli amici."));
         aggiornaCalendario();
 
         btnPrev.setOnClickListener(v -> {
@@ -56,6 +74,22 @@ public class DiarioFragment extends Fragment {
         btnNext.setOnClickListener(v -> {
             calendario.add(Calendar.MONTH, 1);
             aggiornaCalendario();
+        });
+
+        btnNuovaNota.setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, new NuovaNotaFragment())
+                .addToBackStack(null)
+                .commit();
+        });
+
+        btnIndietro.setOnClickListener(v -> {
+            // Torna direttamente alla Home selezionando la voce Home della bottom navigation
+            requireActivity().findViewById(com.example.mindmate.R.id.bottomNavigationView)
+                .performClick();
+            com.google.android.material.bottomnavigation.BottomNavigationView bottomNav = requireActivity().findViewById(com.example.mindmate.R.id.bottomNavigationView);
+            bottomNav.setSelectedItemId(com.example.mindmate.R.id.nav_home);
         });
 
         return view;
@@ -127,5 +161,22 @@ public class DiarioFragment extends Fragment {
     private int dpToPx(int dp) {
         float density = getResources().getDisplayMetrics().density;
         return Math.round((float) dp * density);
+    }
+
+    // Utility per ottenere l'emoji dalla posizione
+    private String getEmojiByIndex(int idx) {
+        String[] emojiList = {
+            getString(R.string.emoji1),
+            getString(R.string.emoji2),
+            getString(R.string.emoji3),
+            getString(R.string.emoji4),
+            getString(R.string.emoji5),
+            getString(R.string.emoji6),
+            getString(R.string.emoji7),
+            getString(R.string.emoji8),
+            getString(R.string.emoji9)
+        };
+        if (idx >= 0 && idx < emojiList.length) return emojiList[idx];
+        return "";
     }
 }

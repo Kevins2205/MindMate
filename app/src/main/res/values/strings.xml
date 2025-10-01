@@ -13,4 +13,18 @@
     <string name="obiettivi">Obiettivi</string>
     <string name="attivita_fisica">Attività fisica</string>
     <string name="attivita_fisica_desc">Che ne dici di una corsetta?</string>
-</resources>
+    <string name="emoji1">😔</string>
+    <string name="emoji2">😍</string>
+    <string name="emoji3">😊</string>
+    <string name="emoji4">😰</string>
+    <string name="emoji5">😭</string>
+    <string name="emoji6">🤔</string>
+    <string name="emoji7">😡</string>
+    <string name="emoji8">😴</string>
+    <string name="emoji9">😅</string>
+    <string name="hint_nota">Oggi mi sento abbastanza ansiosa perché ...</string>
+    <string name="salva">Salva</string>
+    <string name="nuova_nota_title">Nuova Nota</string>
+    <string name="come_ti_senti">Come ti senti oggi?</string>
+    <string name="logo_mindmate">Logo MindMate</string>
+    </resources>

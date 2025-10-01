@@ -34,6 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/monthText"
         android:layout_width="wrap_content"
@@ -67,6 +68,19 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/monthText"
         app:layout_constraintTop_toTopOf="@id/monthText" />
+
+    <!-- Linea di separazione sotto l'header -->
+    <View
+        android:id="@+id/headerLine"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="#FFF8E7"
+        app:layout_constraintTop_toBottomOf="@id/logoMindMate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
 
     <!-- Griglia calendario -->
     <LinearLayout
@@ -161,5 +175,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weekDaysRow" />
+
+    <Button
+        android:id="@+id/buttonNuovaNota"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:text="Aggiungi Nota"
+        android:textStyle="bold"
+        android:backgroundTint="#2B5C53"
+        android:textColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@id/calendarGrid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <Button
+        android:id="@+id/buttonIndietro"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:text="Indietro"
+        android:textStyle="bold"
+        android:backgroundTint="#BDBDBD"
+        android:textColor="#222"
+        app:layout_constraintTop_toBottomOf="@id/buttonNuovaNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

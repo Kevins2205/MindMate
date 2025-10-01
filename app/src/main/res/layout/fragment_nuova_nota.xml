@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/image30">
+
+    <!-- Header: logo a sinistra, titolo centrato, linea bianca sotto -->
+    <ImageView
+        android:id="@+id/logoMindMate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logomindmate"
+        android:contentDescription="Logo MindMate"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nuovaNotaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nuova Nota"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="28dp"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <View
+        android:id="@+id/headerLine"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/logoMindMate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Testo domanda -->
+    <TextView
+        android:id="@+id/textComeTiSenti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Come ti senti oggi?"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/headerLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- Emoji selection (da aggiornare in codice per selezione) -->
+    <LinearLayout
+        android:id="@+id/emojiContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/textComeTiSenti"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView android:id="@+id/emoji1" android:text="@string/emoji1" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+            <TextView android:id="@+id/emoji2" android:text="@string/emoji2" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+            <TextView android:id="@+id/emoji3" android:text="@string/emoji3" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+            <TextView android:id="@+id/emoji4" android:text="@string/emoji4" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+            <TextView android:id="@+id/emoji5" android:text="@string/emoji5" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView android:id="@+id/emoji6" android:text="@string/emoji6" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+            <TextView android:id="@+id/emoji7" android:text="@string/emoji7" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+            <TextView android:id="@+id/emoji8" android:text="@string/emoji8" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+            <TextView android:id="@+id/emoji9" android:text="@string/emoji9" android:textSize="32sp" android:layout_margin="8dp" android:layout_width="40dp" android:layout_height="40dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Textbox per nota -->
+    <EditText
+        android:id="@+id/editTextNota"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_task"
+        android:hint="@string/hint_nota"
+        android:textColorHint="#888"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:autofillHints="username"
+        app:layout_constraintTop_toBottomOf="@id/emojiContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Pulsante Salva -->
+    <Button
+        android:id="@+id/buttonSalvaNota"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:text="@string/salva"
+        android:textStyle="bold"
+        android:backgroundTint="#2B5C53"
+        android:textColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@id/editTextNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- Pulsante Indietro -->
+    <Button
+        android:id="@+id/buttonIndietroNota"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:text="Indietro"
+        android:textStyle="bold"
+        android:backgroundTint="#BDBDBD"
+        android:textColor="#222"
+        app:layout_constraintTop_toBottomOf="@id/buttonSalvaNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

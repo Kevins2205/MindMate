@@ -76,6 +76,18 @@ public class NuovaNotaFragment extends Fragment {
             android.widget.Toast.makeText(getContext(), "Scrivi una nota!", android.widget.Toast.LENGTH_SHORT).show();
             return;
         }
+        // Controllo se esiste già una nota per oggi
+        boolean notaPresente = false;
+        for (DiarioFragment.NotaTemp n : DiarioFragment.noteTemporanee) {
+            if (n.data.equals(data)) {
+                notaPresente = true;
+                break;
+            }
+        }
+        if (notaPresente) {
+            android.widget.Toast.makeText(getContext(), "Hai già inserito una nota oggi. Puoi visualizzarla nel diario.", android.widget.Toast.LENGTH_LONG).show();
+            return;
+        }
         DiarioFragment.noteTemporanee.add(new DiarioFragment.NotaTemp(testo, data, selectedEmojiIndex));
         android.widget.Toast.makeText(getContext(), "Nota salvata correttamente nel diario!", android.widget.Toast.LENGTH_SHORT).show();
         requireActivity().getSupportFragmentManager().popBackStack();

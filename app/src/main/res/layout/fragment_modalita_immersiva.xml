@@ -1,0 +1,76 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/image30">
+
+    <!-- Logo in alto a sinistra -->
+    <ImageView
+        android:id="@+id/logoMindMate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/logomindmate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tvModalitaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MODALITÀ IMMERSIVA"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/headerLine"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="#FFF8E7"
+        app:layout_constraintTop_toBottomOf="@id/logoMindMate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <!-- Frase motivazionale -->
+    <TextView
+        android:id="@+id/tvMotivationalPhrase"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#333"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintTop_toBottomOf="@id/headerLine"
+        app:layout_constraintBottom_toTopOf="@id/btnStop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Benvenuto nella modalità immersiva!"/>
+
+    <!-- Bottone Stop -->
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Stop"
+        android:textStyle="bold"
+        android:backgroundTint="#2B5C53"
+        android:textColor="#FFF"
+        android:layout_marginStart="92dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

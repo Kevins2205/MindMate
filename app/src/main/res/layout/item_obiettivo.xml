@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/iconaObiettivo"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:src="@drawable/obiettivo1"
             android:contentDescription="icona obiettivo" />
 
@@ -31,6 +31,8 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:maxLines="3"
+            android:ellipsize="end" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

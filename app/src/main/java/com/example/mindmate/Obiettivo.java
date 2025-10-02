@@ -19,15 +19,14 @@ public class Obiettivo implements Serializable {
     // Lista statica di tutti gli obiettivi disponibili
     public static List<Obiettivo> getAllObiettivi() {
         List<Obiettivo> list = new ArrayList<>();
-        list.add(new Obiettivo("Superare gli attacchi di panico", R.drawable.obiettivo1));
-        list.add(new Obiettivo("Gestire la rabbia", R.drawable.obiettivo2));
-        list.add(new Obiettivo("Imparare a prendersi cura di sé", R.drawable.obiettivo3));
-        // I file reali nel progetto sono obiettivi4..obiettivi8 (con la 'i')
-        list.add(new Obiettivo("Aumentare l'autostima", R.drawable.obiettivi4));
-        list.add(new Obiettivo("Rilassarsi", R.drawable.obiettivi5));
-        list.add(new Obiettivo("Ridurre lo stress", R.drawable.obiettivi6));
-        list.add(new Obiettivo("Migliorare la qualità del sonno", R.drawable.obiettivi7));
-        list.add(new Obiettivo("Avere più motivazione", R.drawable.obiettivi8));
+        list.add(new Obiettivo("Ridurre lo stress", R.drawable.obiettivo1));
+        list.add(new Obiettivo("Rilassarsi di più", R.drawable.obiettivo2));
+        list.add(new Obiettivo("Gestire la rabbia", R.drawable.obiettivo3));
+        list.add(new Obiettivo("Avere più motivazione", R.drawable.obiettivi4));
+        list.add(new Obiettivo("Migliorare la qualità del sonno", R.drawable.obiettivi5));
+        list.add(new Obiettivo("Aumentare l'autostima", R.drawable.obiettivi6));
+        list.add(new Obiettivo("Imparare a prendersi cura di sé", R.drawable.obiettivi7));
+        list.add(new Obiettivo("Superare gli attacchi di panico", R.drawable.obiettivi8));
         return list;
     }
 

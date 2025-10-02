@@ -65,6 +65,11 @@ public class ObiettiviFragment extends Fragment {
                 Toast.makeText(requireContext(), "Puoi selezionare massimo " + allowed + " obiettivi!", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (obiettiviSelezionati.isEmpty()) {
+                // Non dovrebbe mai essere cliccabile, ma per sicurezza
+                Toast.makeText(requireContext(), "Seleziona almeno un obiettivo.", Toast.LENGTH_SHORT).show();
+                return;
+            }
             ArrayList<Obiettivo> result = new ArrayList<>(obiettiviGiaAggiunti);
             result.addAll(obiettiviSelezionati);
             Bundle bundle = new Bundle();
@@ -77,7 +82,15 @@ public class ObiettiviFragment extends Fragment {
 
         btnIndietro.setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
+        updateAggiungiButton();
         return root;
+    }
+
+    private void updateAggiungiButton() {
+        if (btnAggiungi != null) {
+            btnAggiungi.setEnabled(!obiettiviSelezionati.isEmpty());
+            btnAggiungi.setAlpha(obiettiviSelezionati.isEmpty() ? 0.5f : 1.0f);
+        }
     }
 
     private void onObiettivoClick(Obiettivo obiettivo) {
@@ -96,6 +109,7 @@ public class ObiettiviFragment extends Fragment {
             obiettiviSelezionati.add(obiettivo);
         }
         adapter.notifyDataSetChanged();
+        updateAggiungiButton();
     }
 
     // Factory helper per passare gli obiettivi già scelti
@@ -107,4 +121,3 @@ public class ObiettiviFragment extends Fragment {
         return f;
     }
 }
-

@@ -160,8 +160,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- 3 task wrapper orizzontali -->
-
-    <!-- Obiettivi -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tasksWrapper"
         android:layout_width="382dp"
@@ -175,6 +173,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/taskSection">
+
         <!-- Task 1 Wrapper -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/task1_wrapper"
@@ -235,6 +234,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <!-- Task 2 Wrapper -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/task2_wrapper"
@@ -295,6 +295,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <!-- Task 3 Wrapper -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/task3_wrapper"
@@ -304,6 +305,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="16dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/task3"
                 android:layout_width="110dp"
@@ -367,49 +369,99 @@
         app:layout_constraintTop_toBottomOf="@id/tasksWrapper"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Attività fisica -->
-
-    <!-- Bottom Navigation Bar -->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Sezione OBIETTIVI: riga orizzontale con obiettivi e pulsante + a destra -->
+    <LinearLayout
         android:id="@+id/obiettiviWrapper"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/obiettiviTitle">
 
-        <ImageView
-            android:id="@+id/obiettivo1_img"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:contentDescription="ridurre lo stress"
-            android:src="@drawable/obiettivo1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp">
 
-        <ImageView
-            android:id="@+id/obiettivo2_img"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="16dp"
-            android:contentDescription="rilassarsi"
-            android:src="@drawable/obiettivo2"
-            app:layout_constraintStart_toEndOf="@id/obiettivo1_img"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/obiettivo1_img"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="ridurre lo stress"
+                android:src="@drawable/obiettivo1" />
 
-        <ImageView
-            android:id="@+id/obiettivo3_img"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="16dp"
-            android:contentDescription="gestire la rabbia"
-            android:src="@drawable/obiettivo3"
-            app:layout_constraintStart_toEndOf="@id/obiettivo2_img"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/x_task1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_x"
+                android:contentDescription="Rimuovi obiettivo 1"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-12dp"
+                android:layout_marginEnd="4dp" />
+        </FrameLayout>
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp">
+
+            <ImageView
+                android:id="@+id/obiettivo2_img"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="rilassarsi"
+                android:src="@drawable/obiettivo2" />
+
+            <ImageView
+                android:id="@+id/x_task2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_x"
+                android:contentDescription="Rimuovi obiettivo 2"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-12dp"
+                android:layout_marginEnd="4dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp">
+
+            <ImageView
+                android:id="@+id/obiettivo3_img"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="gestire la rabbia"
+                android:src="@drawable/obiettivo3" />
+
+            <ImageView
+                android:id="@+id/x_task3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_x"
+                android:contentDescription="Rimuovi obiettivo 3"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-12dp"
+                android:layout_marginEnd="4dp" />
+        </FrameLayout>
+
+        <!-- Bottone + per aggiungere obiettivi: sempre a destra della lista, si adatta quando alcuni obiettivi sono GONE -->
+        <ImageView
+            android:id="@+id/btn_add_obiettivo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_add"
+            android:contentDescription="Aggiungi obiettivo"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <!-- Wrapper Attività Fisica -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/attivitaFisicaWrapper"
         android:layout_width="0dp"

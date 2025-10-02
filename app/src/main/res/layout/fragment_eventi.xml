@@ -7,15 +7,18 @@
     android:background="@drawable/image30"
     tools:context=".EventiFragment">
 
-    <!-- Header con logo e linea -->
     <ImageView
         android:id="@+id/logoApp"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="16dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/logomindmate"
+        android:contentDescription="@string/app_name"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/headerLine" />
+
 
     <TextView
         android:id="@+id/tvTitoloEventi"

@@ -49,4 +49,5 @@
     <string name="passeggiata_cane">Passeggiata col cane</string>
     <string name="giro_bici">Giro in bici</string>
     <string name="corsa_allenamento">Corsa allenamento</string>
+    <string name="obiettivo_label">Obiettivo %1$d</string>
     </resources>

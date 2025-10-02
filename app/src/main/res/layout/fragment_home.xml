@@ -369,97 +369,256 @@
         app:layout_constraintTop_toBottomOf="@id/tasksWrapper"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Sezione OBIETTIVI: riga orizzontale con obiettivi e pulsante + a destra -->
+    <!-- Sezione OBIETTIVI: riga orizzontale con 3 obiettivi, testo hint e tasto + a destra -->
     <LinearLayout
         android:id="@+id/obiettiviWrapper"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/attivitaFisicaWrapper"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/obiettiviTitle">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
+        <!-- Slot obiettivi -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp">
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <!-- Obiettivo 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/obiettivo1_img"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:contentDescription="ridurre lo stress"
-                android:src="@drawable/obiettivo1" />
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp">
 
-            <ImageView
-                android:id="@+id/x_task1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_x"
-                android:contentDescription="Rimuovi obiettivo 1"
-                android:layout_gravity="top|end"
-                android:layout_marginTop="-12dp"
-                android:layout_marginEnd="4dp" />
-        </FrameLayout>
+                    <ImageView
+                        android:id="@+id/obiettivo1_img"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/obiettivo1" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:id="@+id/x_task1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="0dp"
+                        android:background="@drawable/bg_day_empty"
+                        android:contentDescription="@string/app_name"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_x" />
+                </FrameLayout>
 
-            <ImageView
-                android:id="@+id/obiettivo2_img"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:contentDescription="rilassarsi"
-                android:src="@drawable/obiettivo2" />
+                <TextView
+                    android:id="@+id/obiettivo1_title"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:text=""
+                    android:textColor="#222"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/x_task2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_x"
-                android:contentDescription="Rimuovi obiettivo 2"
-                android:layout_gravity="top|end"
-                android:layout_marginTop="-12dp"
-                android:layout_marginEnd="4dp" />
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/obiettivo1_id"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="#888"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+            <!-- Obiettivo 2 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp">
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp">
 
-            <ImageView
-                android:id="@+id/obiettivo3_img"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:contentDescription="gestire la rabbia"
-                android:src="@drawable/obiettivo3" />
+                    <ImageView
+                        android:id="@+id/obiettivo2_img"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/obiettivo2" />
 
-            <ImageView
-                android:id="@+id/x_task3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_x"
-                android:contentDescription="Rimuovi obiettivo 3"
-                android:layout_gravity="top|end"
-                android:layout_marginTop="-12dp"
-                android:layout_marginEnd="4dp" />
-        </FrameLayout>
+                    <ImageView
+                        android:id="@+id/x_task2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="0dp"
+                        android:background="@drawable/bg_day_empty"
+                        android:contentDescription="@string/app_name"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_x" />
+                </FrameLayout>
 
-        <!-- Bottone + per aggiungere obiettivi: sempre a destra della lista, si adatta quando alcuni obiettivi sono GONE -->
+                <TextView
+                    android:id="@+id/obiettivo2_title"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:text=""
+                    android:textColor="#222"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/obiettivo2_id"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="#888"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+            <!-- Obiettivo 3 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp">
+
+                    <ImageView
+                        android:id="@+id/obiettivo3_img"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/obiettivo3" />
+
+                    <ImageView
+                        android:id="@+id/x_task3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="0dp"
+                        android:background="@drawable/bg_day_empty"
+                        android:contentDescription="@string/app_name"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_x" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/obiettivo3_title"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:text=""
+                    android:textColor="#222"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/obiettivo3_id"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="#888"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tasto + per aggiungere obiettivi, visibile solo se < 3 obiettivi -->
         <ImageView
             android:id="@+id/btn_add_obiettivo"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/ic_add"
-            android:contentDescription="Aggiungi obiettivo"
-            android:layout_marginStart="8dp"
-            android:layout_gravity="center_vertical" />
-
+            android:visibility="visible" />
     </LinearLayout>
+
+    <!-- Layout centrato per quando NON ci sono obiettivi -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/obiettiviEmptyWrapper"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/obiettiviTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/attivitaFisicaWrapper"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/obiettiviEmptyInner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/add_hint_label_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="200dp"
+                android:text="Aggiungi gli obiettivi qui"
+                android:textColor="#666"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <ImageView
+                android:id="@+id/btn_add_obiettivo_empty"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_add"
+                android:contentDescription="@string/app_name"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Wrapper Attività Fisica -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -475,7 +634,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/obiettiviWrapper">
+        app:layout_constraintTop_toBottomOf="@id/obiettiviEmptyWrapper">
 
         <TextView
             android:id="@+id/attivitaFisicaTitle"

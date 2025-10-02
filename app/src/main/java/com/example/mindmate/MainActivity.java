@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (itemId == R.id.nav_diario) {
                 selectedFragment = new DiarioFragment();
             } else if (itemId == R.id.nav_eventi) {
-                selectedFragment = new AttivitaFragment();
+                selectedFragment = new EventiFragment();
             } /*else if (itemId == R.id.nav_profilo) {
                 selectedFragment = new ProfiloFragment();
             } */

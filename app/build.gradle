@@ -49,6 +49,12 @@ dependencies {
     // ViewPager2 (se necessario)
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
+    // Google Maps
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+
+    // OpenStreetMap
+    implementation 'org.osmdroid:osmdroid-android:6.1.16'
+
     // Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -11,9 +11,15 @@ import java.util.List;
 
 public class EventiAdapter extends RecyclerView.Adapter<EventiAdapter.EventoViewHolder> {
     private final List<Evento> eventi;
+    private final OnEventoClickListener listener;
 
-    public EventiAdapter(List<Evento> eventi) {
+    public interface OnEventoClickListener {
+        void onEventoClick(Evento evento);
+    }
+
+    public EventiAdapter(List<Evento> eventi, OnEventoClickListener listener) {
         this.eventi = eventi;
+        this.listener = listener;
     }
 
     @NonNull
@@ -29,6 +35,7 @@ public class EventiAdapter extends RecyclerView.Adapter<EventiAdapter.EventoView
         holder.titolo.setText(evento.titolo);
         holder.descrizione.setText(evento.descrizione);
         holder.puntina.setImageResource(R.drawable.image);
+        holder.itemView.setOnClickListener(v -> listener.onEventoClick(evento));
     }
 
     @Override

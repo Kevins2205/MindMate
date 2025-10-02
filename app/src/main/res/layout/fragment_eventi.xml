@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/image30"
+    tools:context=".EventiFragment">
+
+    <!-- Header con logo e linea -->
+    <ImageView
+        android:id="@+id/logoApp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/logomindmate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitoloEventi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EVENTI"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="#222"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/logoApp"
+        app:layout_constraintTop_toTopOf="@id/logoApp"
+        app:layout_constraintBottom_toBottomOf="@id/logoApp" />
+
+    <View
+        android:id="@+id/headerLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#DDD"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/logoApp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Sottotitolo -->
+    <TextView
+        android:id="@+id/tvSottotitoloEventi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Mappa eventi\nVisualizza tutti gli eventi che si stanno svolgendo intorno a te"
+        android:textSize="15sp"
+        android:textColor="#666"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/headerLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Box mappa con bordi -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMappa"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/tvSottotitoloEventi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Lista eventi -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerEventi"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/cardMappa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

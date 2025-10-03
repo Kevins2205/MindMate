@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 
 public class DiarioFragment extends Fragment {
 
@@ -46,7 +45,6 @@ public class DiarioFragment extends Fragment {
         TextView btnPrev = view.findViewById(R.id.arrowLeft);
         TextView btnNext = view.findViewById(R.id.arrowRight);
         Button btnNuovaNota = view.findViewById(R.id.buttonNuovaNota);
-        Button btnIndietro = view.findViewById(R.id.buttonIndietro);
         calendario = Calendar.getInstance();
         diarioFinto = new HashMap<>();
         // Carica note temporanee
@@ -61,7 +59,7 @@ public class DiarioFragment extends Fragment {
         diarioFinto.put("2025-09-05", new VoceDiario(getString(R.string.emoji4), "Settembre è iniziato bene, mi sento motivata!"));
         diarioFinto.put("2025-09-12", new VoceDiario(getString(R.string.emoji5), "Oggi sono un po' stanca, ma soddisfatta del lavoro fatto."));
         diarioFinto.put("2025-09-25", new VoceDiario(getString(R.string.emoji6), "Giornata di riflessione, ho preso decisioni importanti."));
-        diarioFinto.put("2025-10-03", new VoceDiario(getString(R.string.emoji7), "Ottobre porta aria fresca, mi sento serena."));
+        diarioFinto.put("2025-10-04", new VoceDiario(getString(R.string.emoji7), "Ottobre porta aria fresca, mi sento serena."));
         diarioFinto.put("2025-10-14", new VoceDiario(getString(R.string.emoji8), "Giornata impegnativa, ma sono riuscita a gestire tutto."));
         diarioFinto.put("2025-10-28", new VoceDiario(getString(R.string.emoji9), "Ho passato una bellissima giornata con gli amici."));
         aggiornaCalendario();
@@ -100,14 +98,6 @@ public class DiarioFragment extends Fragment {
                     .commit();
             });
         }
-
-        btnIndietro.setOnClickListener(v -> {
-            // Torna direttamente alla Home selezionando la voce Home della bottom navigation
-            requireActivity().findViewById(com.example.mindmate.R.id.bottomNavigationView)
-                .performClick();
-            com.google.android.material.bottomnavigation.BottomNavigationView bottomNav = requireActivity().findViewById(com.example.mindmate.R.id.bottomNavigationView);
-            bottomNav.setSelectedItemId(com.example.mindmate.R.id.nav_home);
-        });
 
         return view;
     }

@@ -9,20 +9,6 @@
 
     <!-- Header con titolo centrato e logo a destra -->
 
-    <TextView
-        android:id="@+id/diarioTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="DIARIO"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/logoMindMate"
         android:layout_width="40dp"
@@ -34,6 +20,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/diarioTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="DIARIO"
+        android:textColor="#222"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/logoMindMate"
+        app:layout_constraintTop_toTopOf="@id/logoMindMate"
+        app:layout_constraintBottom_toBottomOf="@id/logoMindMate" />
+
+    <View
+        android:id="@+id/headerLineDiario"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#FFF8E7"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/logoMindMate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/monthText"
@@ -69,18 +77,6 @@
         app:layout_constraintStart_toEndOf="@id/monthText"
         app:layout_constraintTop_toTopOf="@id/monthText" />
 
-    <!-- Linea di separazione sotto l'header -->
-    <View
-        android:id="@+id/headerLine"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:background="#FFF8E7"
-        app:layout_constraintTop_toBottomOf="@id/logoMindMate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp" />
 
     <!-- Griglia calendario -->
     <LinearLayout

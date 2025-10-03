@@ -95,6 +95,12 @@ public class ProfiloFragment extends Fragment {
             transaction.addToBackStack(null);
             transaction.commit();
         });
+        view.findViewById(R.id.btnProssimiEventi).setOnClickListener(v -> {
+            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, new ProssimiEventiFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
 
         return view;
     }

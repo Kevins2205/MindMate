@@ -20,25 +20,24 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ATTIVITÀ"
-        android:textSize="20sp"
+        android:layout_marginStart="8dp"
+        android:text="DETTAGLIO ATTIVITÀ"
+        android:textColor="#222"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_marginTop="28dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/logoMindMate"
+        app:layout_constraintTop_toTopOf="@id/logoMindMate"
+        app:layout_constraintBottom_toBottomOf="@id/logoMindMate" />
 
     <View
-        android:id="@+id/headerLine"
+        android:id="@+id/headerLineDettaglioAttivita"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         android:background="#FFF8E7"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/logoMindMate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Box descrizione -->
     <com.google.android.material.card.MaterialCardView
@@ -51,7 +50,7 @@
         android:layout_marginBottom="16dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/headerLine"
+        app:layout_constraintTop_toBottomOf="@id/headerLineDettaglioAttivita"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/buttonLayout"

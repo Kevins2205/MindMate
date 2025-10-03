@@ -42,6 +42,24 @@
             android:maxLines="2"
             android:ellipsize="end"
             android:paddingTop="2dp"/>
+
+        <TextView
+            android:id="@+id/tvDataEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Data evento"
+            android:textSize="13sp"
+            android:textColor="#2B5C53"
+            android:paddingTop="2dp"/>
+
+        <TextView
+            android:id="@+id/tvLuogoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Luogo evento"
+            android:textSize="13sp"
+            android:textColor="#888"
+            android:paddingTop="2dp"/>
     </LinearLayout>
 
 </LinearLayout>

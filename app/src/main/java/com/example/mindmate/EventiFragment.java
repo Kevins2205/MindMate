@@ -33,13 +33,14 @@ public class EventiFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         listaEventi = getEventiFittizi();
         adapter = new EventiAdapter(listaEventi, evento -> {
-            DettaglioEventoFragment dettaglioFragment = new DettaglioEventoFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString("TITOLO", evento.titolo);
-            bundle.putString("DESCRIZIONE", evento.descrizione);
-            bundle.putString("POSIZIONE", evento.posizione);
-            bundle.putString("DATA", evento.data);
-            dettaglioFragment.setArguments(bundle);
+            boolean giaPrenotato = false;
+            for (Evento e : Evento.eventiPrenotati) {
+                if (e.titolo.equals(evento.titolo) && e.data.equals(evento.data)) {
+                    giaPrenotato = true;
+                    break;
+                }
+            }
+            DettaglioEventoFragment dettaglioFragment = DettaglioEventoFragment.newInstance(evento, giaPrenotato);
             requireActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, dettaglioFragment)

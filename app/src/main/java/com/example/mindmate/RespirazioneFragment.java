@@ -68,11 +68,11 @@ public class RespirazioneFragment extends Fragment {
     }
 
     private void avviaRespirazione() {
-        if(HomeFragment.respirazioneCompletataOggi) {
+        /*if(HomeFragment.respirazioneCompletataOggi) {
             // Se già completata oggi, mostra messaggio e non far ripartire
-            android.widget.Toast.makeText(getContext(), "Hai già completato l'esercizio di respirazione oggi! Torna alla Home", android.widget.Toast.LENGTH_LONG).show();
+            android.widget.Toast.makeText(getContext(), "Hai completato già l'esercizio di respirazione ma puoi rifarlo!", android.widget.Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/ // Ora si può rifare più volte al giorno perche secondo me è utile e non crea problemi
         fase = 0;
         tempoTrascorso = 0L;
         buttonStart.setEnabled(false);

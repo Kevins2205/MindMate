@@ -80,9 +80,17 @@ public class HomeFragment extends Fragment {
             pillRespira.setImageResource(R.drawable.pillgreen);
             if (task2 != null) {
                 task2.setOnClickListener(v -> {
-                    Toast.makeText(getContext(), "Hai già completato la respirazione oggi!", Toast.LENGTH_LONG).show();
+                    FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.fragment_container, new RespirazioneFragment());
+                    ft.addToBackStack(null);
+                    ft.commit();
                 });
             }
+            /*if (task2 != null) {
+                task2.setOnClickListener(v -> {
+                    Toast.makeText(getContext(), "Hai già completato la respirazione oggi!", Toast.LENGTH_LONG).show();
+                });
+            }*/ // secondo me da togliere perche che senso avrebbe di privare l'utente di accedere agli esercizi di respirazione
         } else {
             pillRespira.setImageResource(R.drawable.pill);
             if (task2 != null) {
@@ -139,6 +147,15 @@ public class HomeFragment extends Fragment {
         xTask1 = root.findViewById(R.id.x_task1);
         xTask2 = root.findViewById(R.id.x_task2);
         xTask3 = root.findViewById(R.id.x_task3);
+        View task3 = root.findViewById(R.id.task3);
+        if (task3 != null) {
+            task3.setOnClickListener(v -> {
+                FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_container, new IspirazioneFragment());
+                ft.addToBackStack(null);
+                ft.commit();
+            });
+        }
         ImageView btnAddObiettivoEmpty = root.findViewById(R.id.btn_add_obiettivo_empty);
         // Click su bottone add centrato
         if (btnAddObiettivoEmpty != null) {
@@ -221,6 +238,37 @@ public class HomeFragment extends Fragment {
                 ft.addToBackStack(null);
                 ft.commit();
             });
+        }
+
+        // --- LOGICA ISPIRAZIONE (pillola verde se completata oggi, solo temporanea) ---
+        ImageView pillIspirazione = root.findViewById(R.id.task3_img);
+        if (pillIspirazione != null) {
+            if (com.example.mindmate.IspirazioneFragment.ispirazioneCompletataOggi) {
+                pillIspirazione.setImageResource(R.drawable.pillgreen);
+                if (task3 != null) {
+                    task3.setOnClickListener(v -> {
+                        FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.fragment_container, new IspirazioneFragment());
+                        ft.addToBackStack(null);
+                        ft.commit();
+                    });
+                }
+                /*if (task3 != null) {
+                    task3.setOnClickListener(v -> {
+                        Toast.makeText(getContext(), "Hai già completato l'ispirazione oggi!", Toast.LENGTH_LONG).show();
+                    });
+                }   secondo me da togliere perche che senso avrebbe di privare l'utente di accedere ai video o audio  */
+            } else {
+                pillIspirazione.setImageResource(R.drawable.pill);
+                if (task3 != null) {
+                    task3.setOnClickListener(v -> {
+                        FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.fragment_container, new IspirazioneFragment());
+                        ft.addToBackStack(null);
+                        ft.commit();
+                    });
+                }
+            }
         }
 
         return root;

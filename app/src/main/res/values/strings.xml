@@ -50,4 +50,17 @@
     <string name="giro_bici">Giro in bici</string>
     <string name="corsa_allenamento">Corsa allenamento</string>
     <string name="obiettivo_label">Obiettivo %1$d</string>
-    </resources>
+    <string name="titolo_video_principale">INARRESTABILE</string>
+    <string name="titolo_video_correlato1">Perchè cadiamo</string>
+    <string name="titolo_video_correlato2">Ritrova la tua vera forza, non arrenderti mai!</string>
+    <string name="titolo_audio1">Andrea Giuliodori - Cosa ti impedisce di MIGLIORARE?</string>
+    <string name="titolo_audio2">Gianluca Gotto - Come scegliere, ogni giorno, se stessi</string>
+    <string name="titolo_audio3">One More Time - Paolo Crepet e gli psichiatri</string>
+    <string name="video">Video</string>
+    <string name="video_motivazioni">Video motivazioni</string>
+    <string name="tira_su_il_morale">Tira su il morale!</string>
+    <string name="audio_e_podcast">Audio e podcast</string>
+    <string name="storie_ispirazione">Storie che ti potrebbero ispirare.</string>
+    <string name="descrizione_copertina_video">Copertina video motivazionale</string>
+    <string name="descrizione_play">Pulsante play</string>
+</resources>

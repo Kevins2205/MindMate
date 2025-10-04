@@ -76,8 +76,10 @@ public class RespirazioneFragment extends Fragment {
         fase = 0;
         tempoTrascorso = 0L;
         buttonStart.setEnabled(false);
+        buttonStart.setAlpha(0.5f);
         aggiornaCicliRimanenti();
         eseguiFase();
+
     }
 
     private void eseguiFase() {
@@ -87,6 +89,7 @@ public class RespirazioneFragment extends Fragment {
             buttonStart.setEnabled(true);
             textCicliRimanenti.setText("Cicli rimanenti: 0");
             salvaCompletamentoRespirazione();
+            buttonStart.setAlpha(1.0f);
             return;
         }
         FaseRespiro faseAttuale = fasi[fase % fasi.length];

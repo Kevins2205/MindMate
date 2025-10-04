@@ -141,10 +141,18 @@ public class DettaglioIspirazioneFragment extends Fragment {
                     tvTotalTime.setText(formatTime(mediaPlayer.getDuration()));
                     tvCurrentTime.setText(formatTime(0));
                 }
-                if (isPlaying) {
+                if (mediaPlayer != null)
+                {
+                    mediaPlayer.setOnCompletionListener(mp -> {
+                        com.example.mindmate.IspirazioneFragment.ispirazioneCompletataOggi = true;
+                        btnPlayAudio.setImageResource(R.drawable.ic_play);
+                        isPlaying = false;
+                    });
+                }
+                if (isPlaying && mediaPlayer != null) {
                     mediaPlayer.pause();
                     btnPlayAudio.setImageResource(R.drawable.ic_play);
-                } else {
+                } else if (mediaPlayer != null) {
                     mediaPlayer.start();
                     btnPlayAudio.setImageResource(R.drawable.ic_pause);
                     updateSeekBar = new Runnable() {
@@ -161,6 +169,7 @@ public class DettaglioIspirazioneFragment extends Fragment {
                 }
                 isPlaying = !isPlaying;
             });
+
             seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

@@ -162,7 +162,7 @@
     <!-- 3 task wrapper orizzontali -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tasksWrapper"
-        android:layout_width="382dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:clipChildren="false"
         android:clipToPadding="false"
@@ -321,6 +321,7 @@
                     android:id="@+id/task3_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="4dp"
                     android:text="@string/task3_title"
@@ -328,6 +329,7 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -671,3 +673,5 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

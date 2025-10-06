@@ -63,4 +63,13 @@
     <string name="storie_ispirazione">Storie che ti potrebbero ispirare.</string>
     <string name="descrizione_copertina_video">Copertina video motivazionale</string>
     <string name="descrizione_play">Pulsante play</string>
+    <string name="settings">Impostazioni</string>
+    <string name="settings_title">IMPOSTAZIONI</string>
+    <string name="privacy">Privacy</string>
+    <string name="notifiche">Notifiche</string>
+    <string name="tema">Tema</string>
+    <string name="lingua">Lingua</string>
+    <string name="spazio_e_dati">Spazio e dati</string>
+    <string name="info">Info</string>
+    <string name="back">&lt; Indietro</string>
 </resources>

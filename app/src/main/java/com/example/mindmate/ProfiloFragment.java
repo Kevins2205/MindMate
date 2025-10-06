@@ -110,6 +110,15 @@ public class ProfiloFragment extends Fragment {
                 transaction.commit();
             });
         }
+        LinearLayout btnImpostazioni = view.findViewById(R.id.btnImpostazioni);
+        if (btnImpostazioni != null) {
+            btnImpostazioni.setOnClickListener(v -> {
+                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, new ImpostazioniFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            });
+        }
 
         return view;
     }

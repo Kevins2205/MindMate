@@ -25,6 +25,7 @@ public class ProssimiEventiFragment extends Fragment {
         ProssimiEventiAdapter adapter = new ProssimiEventiAdapter(getContext(), eventi);
         recyclerView.setAdapter(adapter);
 
+        view.findViewById(R.id.btnIndietro).setOnClickListener(v -> requireActivity().onBackPressed());
         return view;
     }
 }

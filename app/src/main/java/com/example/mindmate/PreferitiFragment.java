@@ -21,7 +21,7 @@ public class PreferitiFragment extends Fragment {
         List<Ispirazione> preferiti = PreferitiManager.preferiti;
         PreferitiAdapter adapter = new PreferitiAdapter(getContext(), preferiti);
         recyclerView.setAdapter(adapter);
+        view.findViewById(R.id.btnIndietro).setOnClickListener(v -> requireActivity().onBackPressed());
         return view;
     }
 }
-

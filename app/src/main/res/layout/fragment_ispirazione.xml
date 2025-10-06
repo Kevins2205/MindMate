@@ -73,7 +73,7 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:orientation="horizontal"
-        android:background="#66FFFFFF"
+        android:background="@drawable/bg_video_wrapper"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -87,7 +87,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:background="@drawable/bg_video_wrapper"
+            android:background="@drawable/bg_video_rounded"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="4dp">
 
@@ -98,13 +98,15 @@
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
                     android:background="@drawable/bg_video_cover"
+                    android:clipToOutline="true"
+                    android:src="@drawable/cover1"
                     android:contentDescription="@string/descrizione_copertina_video" />
                 <TextView
                     android:id="@+id/tvTitoloPrincipale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/titolo_video_principale"
-                    android:textColor="#222"
+                    android:textColor="#fff"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -134,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_video_wrapper"
+                android:background="@drawable/bg_video_rounded"
                 android:layout_marginBottom="8dp">
 
                     <ImageView
@@ -144,13 +146,15 @@
                         android:layout_gravity="center"
                         android:scaleType="centerCrop"
                         android:background="@drawable/bg_video_cover"
+                        android:clipToOutline="true"
+                        android:src="@drawable/cover2"
                         android:contentDescription="@string/descrizione_copertina_video" />
                     <TextView
                         android:id="@+id/tvTitoloCorrelato1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/titolo_video_correlato1"
-                        android:textColor="#222"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:gravity="center"
@@ -171,7 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_video_wrapper">
+                android:background="@drawable/bg_video_rounded">
 
                     <ImageView
                         android:id="@+id/imgCoverCorrelato2"
@@ -180,13 +184,15 @@
                         android:layout_gravity="center"
                         android:scaleType="centerCrop"
                         android:background="@drawable/bg_video_cover"
+                        android:clipToOutline="true"
+                        android:src="@drawable/cover3"
                         android:contentDescription="@string/descrizione_copertina_video" />
                     <TextView
                         android:id="@+id/tvTitoloCorrelato2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/titolo_video_correlato2"
-                        android:textColor="#222"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:gravity="center"

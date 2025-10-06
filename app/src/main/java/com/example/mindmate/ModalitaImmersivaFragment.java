@@ -62,6 +62,13 @@ public class ModalitaImmersivaFragment extends Fragment {
         btnStop.setOnClickListener(v -> {
             handler.removeCallbacks(phraseRunnable);
 
+            // Segna attività fisica completata (solo in memoria)
+            String dataOggi = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).format(new java.util.Date());
+            HomeFragment.attivitaCompletateTemporanee.add(
+                new HomeFragment.AttivitaCompletataTemp("Attività Fisica", dataOggi)
+            );
+            HomeFragment.attivitaFisicaCompletataOggi = true;
+
             // Torna a AttivitaFragment
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()

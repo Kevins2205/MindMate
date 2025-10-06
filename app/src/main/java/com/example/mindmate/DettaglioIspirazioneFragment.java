@@ -46,6 +46,9 @@ public class DettaglioIspirazioneFragment extends Fragment {
         TextView tvTotalTime = root.findViewById(R.id.tvTotalTime);
         LinearLayout btnPlayAudioWrapper = root.findViewById(R.id.btnPlayAudioWrapper);
 
+        // Imposta la cover in base all'id
+        imgCover.setImageResource(getCoverResId(id));
+
         if ("video".equals(tipo)) {
             frameMedia.setVisibility(View.VISIBLE);
             imgCover.setVisibility(View.VISIBLE);
@@ -240,5 +243,13 @@ public class DettaglioIspirazioneFragment extends Fragment {
         if (handler != null && updateSeekBar != null) {
             handler.removeCallbacks(updateSeekBar);
         }
+    }
+
+    // Metodo per restituire la cover corretta in base all'id
+    private int getCoverResId(String id) {
+        if ("videoPrincipale".equals(id)) return R.drawable.cover1;
+        if ("videoCorrelato1".equals(id)) return R.drawable.cover2;
+        if ("videoCorrelato2".equals(id)) return R.drawable.cover3;
+        return R.drawable.cover1;
     }
 }

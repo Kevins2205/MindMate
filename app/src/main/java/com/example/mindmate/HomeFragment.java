@@ -25,14 +25,20 @@ public class HomeFragment extends Fragment {
 
     // Variabile statica per lo stato temporaneo della respirazione
     protected static boolean respirazioneCompletataOggi = false;
+    protected static boolean attivitaFisicaCompletataOggi = false;
+    protected static boolean notaCompletataOggi = false;
     private List<Obiettivo> obiettiviUtente = new ArrayList<>();
     private ImageView obiettivo1Img, obiettivo2Img, obiettivo3Img;
     private TextView obiettivo1Title, obiettivo2Title, obiettivo3Title;
     private TextView obiettivo1Id, obiettivo2Id, obiettivo3Id;
     private ImageView xTask1, xTask2, xTask3;
+    private ImageView imgTerra;
 
     private static final String PREFS_NAME = "obiettivi_prefs";
     private static final String KEY_OBIETTIVI = "obiettivi_utenti_titoli";
+    private static final String PREFS_ATTIVITA = "attivita_prefs";
+    private static final String KEY_ATTIVITA_COMPLETATA = "attivita_completata_data";
+    private static final String KEY_ATTIVITA_DATA = "attivita_data";
 
     @Nullable
     @Override
@@ -50,8 +56,10 @@ public class HomeFragment extends Fragment {
             for (DiarioFragment.NotaTemp n : DiarioFragment.noteTemporanee) {
                 if (n.data.equals(dataOggi)) {
                     notaPresente = true;
+                    notaCompletataOggi = true;
                     break;
                 }
+                else notaCompletataOggi = false;
             }
         }
         if (notaPresente) {
@@ -270,8 +278,85 @@ public class HomeFragment extends Fragment {
                 }
             }
         }
+        imgTerra = root.findViewById(R.id.imgTerra);
+        caricaStatoAttivitaFisica();
+        aggiornaImmagineTerra();
 
         return root;
+    }
+
+    private void aggiornaImmagineTerra() {
+        int completate = 0;
+        if (notaCompletataOggi) completate++;
+        if (respirazioneCompletataOggi) completate++;
+        if (com.example.mindmate.IspirazioneFragment.ispirazioneCompletataOggi) completate++;
+        if (attivitaFisicaCompletataOggi) completate++;
+        if (imgTerra != null) {
+            int marginBottom=dpToPx(-32);
+            int height=dpToPx(90);
+            if(completate >= 1) {marginBottom=dpToPx(-15);}
+            if(completate >= 2) {marginBottom=dpToPx(-5);}
+            if(completate >= 3) {marginBottom=dpToPx(0); height=dpToPx(110);}
+            if(completate >= 4) {marginBottom=dpToPx(0); height=dpToPx(145);}
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) imgTerra.getLayoutParams();
+            params.bottomMargin = marginBottom;
+            params.height = height;
+            imgTerra.setLayoutParams(params);
+            if (completate == 1) imgTerra.setImageResource(R.drawable.foglie1);
+            else if (completate == 2) imgTerra.setImageResource(R.drawable.foglie2);
+            else if (completate == 3) imgTerra.setImageResource(R.drawable.foglie3);
+            else if (completate == 4) imgTerra.setImageResource(R.drawable.tuttofatto);
+            else imgTerra.setImageResource(R.drawable.terra);
+        }
+    }
+
+    private int dpToPx(int dp) {
+        float density = getResources().getDisplayMetrics().density;
+        return Math.round((float) dp * density);
+    }
+
+    private void caricaStatoAttivitaFisica() {
+        // Ora controlla solo la lista temporanea e la variabile in memoria
+        String oggi = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+        attivitaFisicaCompletataOggi = false;
+        for (AttivitaCompletataTemp a : attivitaCompletateTemporanee) {
+            if (a.titolo.equals("Attività Fisica") && a.data.equals(oggi)) {
+                attivitaFisicaCompletataOggi = true;
+                break;
+            }
+        }
+    }
+
+    // Classe statica per attività completate temporanee
+    public static class AttivitaCompletataTemp {
+        public String titolo;
+        public String data;
+        public AttivitaCompletataTemp(String titolo, String data) {
+            this.titolo = titolo;
+            this.data = data;
+        }
+    }
+    // Lista statica per attività completate temporanee
+    public static List<AttivitaCompletataTemp> attivitaCompletateTemporanee = new ArrayList<>();
+
+    // Quando un'attività viene completata, aggiungi solo alla lista temporanea
+    private void segnaAttivitaCompletata(String titolo) {
+        String dataOggi = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        attivitaCompletateTemporanee.add(new AttivitaCompletataTemp(titolo, dataOggi));
+        // Non salvare più persistentemente
+        // SharedPreferences prefs = requireContext().getSharedPreferences(PREFS_ATTIVITA, Context.MODE_PRIVATE);
+        // prefs.edit().putString(KEY_ATTIVITA_COMPLETATA, dataOggi).apply();
+    }
+
+    // Quando controlli se un'attività è stata completata oggi, verifica solo nella lista temporanea
+    private boolean isAttivitaCompletataOggi(String titolo) {
+        String dataOggi = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        for (AttivitaCompletataTemp a : attivitaCompletateTemporanee) {
+            if (a.titolo.equals(titolo) && a.data.equals(dataOggi)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private String wrapTitle(String title, int wordsPerLine) {

@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -18,7 +17,6 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,18 +87,29 @@ public class ProfiloFragment extends Fragment {
 
         lineChart.invalidate();
 
-        view.findViewById(R.id.btnDettagliUtente).setOnClickListener(v -> {
+        LinearLayout btnDettagliUtente = view.findViewById(R.id.btnDettagliUtente);
+        btnDettagliUtente.setOnClickListener(v -> {
             FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, new DettaglioUtenteFragment());
             transaction.addToBackStack(null);
             transaction.commit();
         });
-        view.findViewById(R.id.btnProssimiEventi).setOnClickListener(v -> {
+        LinearLayout btnProssimiEventi = view.findViewById(R.id.btnProssimiEventi);
+        btnProssimiEventi.setOnClickListener(v -> {
             FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, new ProssimiEventiFragment());
             transaction.addToBackStack(null);
             transaction.commit();
         });
+        LinearLayout btnPreferiti = view.findViewById(R.id.btnPreferiti);
+        if (btnPreferiti != null) {
+            btnPreferiti.setOnClickListener(v -> {
+                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, new PreferitiFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            });
+        }
 
         return view;
     }

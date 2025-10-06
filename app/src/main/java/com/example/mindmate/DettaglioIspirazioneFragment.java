@@ -184,8 +184,17 @@ public class DettaglioIspirazioneFragment extends Fragment {
         }
 
         Button btnPreferiti = root.findViewById(R.id.btnPreferiti);
+        com.example.mindmate.Ispirazione ispirazione = new com.example.mindmate.Ispirazione(tipo, id, titolo);
+        aggiornaStatoPreferiti(btnPreferiti, ispirazione);
         btnPreferiti.setOnClickListener(v -> {
-            Toast.makeText(requireContext(), "Aggiunto ai preferiti!", Toast.LENGTH_SHORT).show();
+            if (PreferitiManager.isPreferito(ispirazione)) {
+                PreferitiManager.rimuoviPreferito(ispirazione);
+                Toast.makeText(requireContext(), "Rimosso dai preferiti!", Toast.LENGTH_SHORT).show();
+            } else {
+                PreferitiManager.aggiungiPreferito(ispirazione);
+                Toast.makeText(requireContext(), "Aggiunto ai preferiti!", Toast.LENGTH_SHORT).show();
+            }
+            aggiornaStatoPreferiti(btnPreferiti, ispirazione);
         });
         Button btnIndietro = root.findViewById(R.id.btnIndietro);
         btnIndietro.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
@@ -211,6 +220,15 @@ public class DettaglioIspirazioneFragment extends Fragment {
         int minutes = seconds / 60;
         seconds = seconds % 60;
         return String.format("%02d:%02d", minutes, seconds);
+    }
+    private void aggiornaStatoPreferiti(Button btn, com.example.mindmate.Ispirazione ispirazione) {
+        if (PreferitiManager.isPreferito(ispirazione)) {
+            btn.setText("Rimuovi dai preferiti");
+            btn.setBackgroundTintList(android.content.res.ColorStateList.valueOf(getResources().getColor(android.R.color.holo_red_dark)));
+        } else {
+            btn.setText("Aggiungi ai preferiti");
+            btn.setBackgroundTintList(android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#2B5C53")));
+        }
     }
     @Override
     public void onDestroyView() {

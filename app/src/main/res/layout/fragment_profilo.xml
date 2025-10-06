@@ -98,7 +98,7 @@
         android:layout_marginEnd="24dp"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
-        android:rowCount="3"
+        android:rowCount="2"
         app:layout_constraintTop_toBottomOf="@id/tvAreaPersonale"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -131,6 +131,7 @@
                 android:layout_marginTop="6dp"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/btnPreferiti"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
@@ -138,7 +139,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_margin="12dp"
-            android:background="@drawable/bg_event_item_rounded">
+            android:background="@drawable/bg_event_item_rounded"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -147,28 +151,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Preferiti"
-                android:textColor="#222"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:layout_marginTop="6dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="12dp"
-            android:background="@drawable/bg_event_item_rounded">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_save"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Salvati per dopo"
                 android:textColor="#222"
                 android:textSize="15sp"
                 android:textStyle="bold"

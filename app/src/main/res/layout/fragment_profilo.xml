@@ -183,6 +183,7 @@
                 android:layout_marginTop="6dp"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/btnImpostazioni"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
@@ -190,7 +191,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_margin="12dp"
-            android:background="@drawable/bg_event_item_rounded">
+            android:background="@drawable/bg_event_item_rounded"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"

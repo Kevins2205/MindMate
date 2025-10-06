@@ -73,6 +73,8 @@ public class ProfiloFragment extends Fragment {
                 return "";
             }
         });
+        xAxis.setLabelRotationAngle(0f); // Ripristina etichette orizzontali
+        xAxis.setYOffset(0f); // Ripristina posizione originale delle etichette
 
         // Asse Y
         YAxis yAxisLeft = lineChart.getAxisLeft();
@@ -83,6 +85,7 @@ public class ProfiloFragment extends Fragment {
         yAxisLeft.setAxisMinimum(0f);
         yAxisLeft.setAxisMaximum(5f);
         yAxisLeft.setLabelCount(6, true);
+        yAxisLeft.setDrawLabels(false); // Nasconde i numeri a lato
         lineChart.getAxisRight().setEnabled(false);
 
         lineChart.invalidate();
